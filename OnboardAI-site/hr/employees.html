@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>OnboardAI | Quản lý Nhân sự</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+<script src="../shared/role-switcher.js" data-role="hr" defer></script></head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo-brand"><i class="fa-solid fa-wand-magic-sparkles"></i> OnboardAI</div>
+            <a href="index.html" class="nav-link-custom"><i class="fa-solid fa-chart-pie"></i> Báo cáo tổng quan</a>
+            <a href="employees.html" class="nav-link-custom active"><i class="fa-solid fa-users"></i> Quản lý nhân viên</a>
+            <a href="journeys.html" class="nav-link-custom"><i class="fa-solid fa-route"></i> Quy trình hội nhập</a>
+            <a href="#" class="nav-link-custom" onclick="return false" title="Chưa có trong bản prototype"><i class="fa-solid fa-gear"></i> Cài đặt hệ thống</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-grow-1 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold">Danh sách nhân sự mới</h3>
+                <button class="btn btn-primary" style="background-color: var(--primary); border:none;"><i class="fa-solid fa-plus"></i> Thêm nhân sự mới</button>
+            </div>
+
+            <!-- Filter Card -->
+            <div class="card-custom mb-3">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" id="search-input" class="form-control" placeholder="🔍 Tìm kiếm nhân viên theo tên hoặc email...">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="dept-filter" class="form-select">
+                            <option value="">Tất cả phòng ban</option>
+                            <option value="IT">Kỹ thuật (IT)</option>
+                            <option value="HR">Nhân sự (HR)</option>
+                            <option value="Marketing">Marketing</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee List Table -->
+            <div class="card-custom">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Phòng ban</th>
+                            <th>Mentor phụ trách</th>
+                            <th>Ngày gia nhập</th>
+                            <th>Tiến độ</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <dialog id="employee-dialog" class="ob-dialog" aria-labelledby="employee-dialog-title">
+        <form id="employee-form" method="dialog" novalidate>
+            <h4 id="employee-dialog-title">Chỉnh sửa nhân sự</h4>
+            <p class="text-muted small mb-3">Các trường có dấu * là bắt buộc.</p>
+            <div class="row g-3">
+                <div class="col-12"><label class="form-label" for="f-name">Họ và tên *</label><input class="form-control" id="f-name" maxlength="80"></div>
+                <div class="col-12"><label class="form-label" for="f-email">Email *</label><input class="form-control" id="f-email" type="email" maxlength="120"></div>
+                <div class="col-md-6"><label class="form-label" for="f-dept">Phòng ban *</label>
+                    <select class="form-select" id="f-dept"><option value="IT">Kỹ thuật (IT)</option><option value="HR">Nhân sự (HR)</option><option value="Marketing">Marketing</option></select></div>
+                <div class="col-md-6"><label class="form-label" for="f-mentor">Mentor phụ trách *</label><input class="form-control" id="f-mentor" maxlength="80"></div>
+                <div class="col-md-6"><label class="form-label" for="f-join">Ngày gia nhập *</label><input class="form-control" id="f-join" type="date"></div>
+                <div class="col-md-6"><label class="form-label" for="f-progress">Tiến độ (%) *</label><input class="form-control" id="f-progress" type="number" min="0" max="100" step="1"></div>
+            </div>
+            <div class="err" id="employee-error" role="alert"></div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button type="button" class="btn btn-light" id="employee-cancel">Hủy</button>
+                <button type="submit" class="btn btn-primary" id="employee-save">Lưu thay đổi</button>
+            </div>
+        </form>
+    </dialog>
+    <script src="js/hr-main.js"></script>
+</body>
+</html>

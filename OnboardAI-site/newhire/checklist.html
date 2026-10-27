@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Checklist hội nhập nhân sự mới - OnboardAI">
+  <title>OnboardAI | Checklist hội nhập</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+<script src="../shared/role-switcher.js" data-role="newhire" defer></script></head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="OnboardAI trang chủ">
+        <span class="brand-mark">✦</span><span>Onboard<span class="brand-ai">AI</span></span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <a class="nav-link active" href="checklist.html"><span>☷</span> Checklist hội nhập</a>
+        <a class="nav-link" href="index.html"><span>▤</span> Tổng quan</a>
+        <a class="nav-link" href="ai-help.html"><span>✧</span> AI Help</a>
+        <a class="nav-link" href="#reminders"><span>♧</span> Thông báo <span class="notification-count">3</span></a>
+        <a class="nav-link" href="#profile"><span>♙</span> Hồ sơ cá nhân</a>
+        <a class="nav-link" href="#settings"><span>⚙</span> Cài đặt</a>
+      </nav>
+      <div class="sidebar-note">
+        <div class="mini-illustration">👩🏻‍💻 ✨</div>
+        <h3>Chào mừng bạn đến với OnboardAI!</h3>
+        <p>Cùng nhau bắt đầu hành trình hội nhập nhé.</p>
+      </div>
+    </aside>
+
+    <main class="main-content" id="checklist">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="Mở hoặc đóng menu" aria-expanded="false">☰</button>
+        <div class="mobile-brand">Onboard<span class="brand-ai">AI</span></div>
+        <div class="topbar-spacer"></div>
+        <button class="icon-button notification-button" aria-label="Thông báo">♧<span></span></button>
+        <div class="profile" id="profile">
+          <div class="avatar">NA</div>
+          <div><strong>Nguyễn Văn A</strong><small>Nhân viên mới</small></div>
+        </div>
+      </header>
+
+      <section class="welcome-banner" aria-labelledby="welcomeTitle">
+        <div class="welcome-copy">
+          <span class="eyebrow"><span>✧</span> Hành trình mới bắt đầu</span>
+          <h1 id="welcomeTitle">Chào mừng bạn, Nguyễn Văn A!</h1>
+          <p>Chúng tôi rất vui khi có bạn trong đội ngũ. Hãy hoàn thành các bước dưới đây để có một khởi đầu thật suôn sẻ.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">☑<span>✦</span></div>
+      </section>
+
+      <section class="progress-card" aria-labelledby="progressTitle">
+        <div class="progress-main">
+          <div class="progress-ring" id="progressRing" aria-label="Tiến độ 40 phần trăm">
+            <span id="progressPercent">40%</span>
+          </div>
+          <div class="progress-copy">
+            <p class="section-kicker">TIẾN ĐỘ CỦA BẠN</p>
+            <h2 id="progressTitle"><span id="completedCount">2</span> / <span id="totalCount">5</span> nhiệm vụ đã hoàn thành <span class="inline-percent" id="inlinePercent">40%</span></h2>
+            <div class="progress-track" role="progressbar" aria-label="Tiến độ hội nhập" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" id="progressBar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong class="green" id="doneStat">2</strong><span>Hoàn thành</span></div>
+          <div class="stat"><strong class="orange" id="pendingStat">3</strong><span>Đang chờ</span></div>
+          <div class="stat"><strong class="red" id="overdueStat">0</strong><span>Quá hạn</span></div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <section class="tasks-section" aria-labelledby="tasksTitle">
+          <div class="tasks-heading">
+            <div>
+              <p class="section-kicker">KẾ HOẠCH HỘI NHẬP</p>
+              <h2 id="tasksTitle">Danh sách nhiệm vụ</h2>
+            </div>
+            <span class="task-total" id="taskTotalLabel">5 nhiệm vụ</span>
+          </div>
+
+          <div class="task-controls">
+            <div class="filter-tabs" role="group" aria-label="Lọc nhiệm vụ">
+              <button class="filter-tab active" data-filter="all" aria-pressed="true">Tất cả <span id="allTabCount">5</span></button>
+              <button class="filter-tab" data-filter="pending" aria-pressed="false">Chưa hoàn thành <span id="pendingTabCount">3</span></button>
+              <button class="filter-tab" data-filter="completed" aria-pressed="false">Đã hoàn thành <span id="completedTabCount">2</span></button>
+            </div>
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <span class="sr-only">Tìm kiếm nhiệm vụ</span>
+              <input id="searchInput" type="search" placeholder="Tìm kiếm nhiệm vụ..." autocomplete="off">
+            </label>
+          </div>
+
+          <div class="task-list" id="taskList" aria-live="polite"></div>
+          <p class="empty-state" id="emptyState" hidden>Không tìm thấy nhiệm vụ phù hợp.</p>
+          <p class="helper-text">Mẹo: Đánh dấu vào ô bên cạnh nhiệm vụ khi bạn hoàn thành công việc đó.</p>
+        </section>
+
+        <aside class="right-column">
+          <section class="side-card" id="reminders">
+            <div class="side-card-heading"><span class="side-icon purple-icon">♧</span><h2>Nhắc nhở sắp tới</h2></div>
+            <div class="reminder-item"><span class="reminder-icon blue-icon">▦</span><div><strong>Tham gia buổi định hướng</strong><small>28/10/2026</small></div><span class="chevron">›</span></div>
+            <div class="reminder-item"><span class="reminder-icon blue-icon">▣</span><div><strong>Tìm hiểu quy trình làm việc</strong><small>30/10/2026</small></div><span class="chevron">›</span></div>
+            <div class="reminder-item"><span class="reminder-icon blue-icon">♧</span><div><strong>Gặp mentor / quản lý trực tiếp</strong><small>31/10/2026</small></div><span class="chevron">›</span></div>
+          </section>
+
+          <section class="side-card" id="documents">
+            <div class="side-card-heading"><span class="side-icon">▤</span><h2>Tài liệu hữu ích</h2><a href="#documents">Xem tất cả</a></div>
+            <div class="document-item"><span class="pdf-icon">PDF</span><div><strong>Nội quy công ty</strong><small>Tài liệu tham khảo</small></div><span class="download-icon">↓</span></div>
+            <div class="document-item"><span class="pdf-icon">PDF</span><div><strong>Hướng dẫn sử dụng hệ thống</strong><small>Tài liệu tham khảo</small></div><span class="download-icon">↓</span></div>
+            <div class="document-item"><span class="pdf-icon">PDF</span><div><strong>Quy trình làm việc</strong><small>Tài liệu tham khảo</small></div><span class="download-icon">↓</span></div>
+          </section>
+
+          <section class="ai-card" id="ai-help">
+            <div class="ai-avatar">✦</div><div><h2>Cần hỗ trợ?</h2><p>Hãy hỏi trợ lý AI để được giải đáp nhanh chóng các thắc mắc của bạn!</p><button class="primary-button" id="aiHelpButton">✧ Trợ lý AI</button></div>
+            <p class="ai-response" id="aiResponse" hidden>Đây là bản minh họa. Hãy liên hệ HR hoặc mentor nếu bạn cần hỗ trợ cụ thể.</p>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <span><strong>OnboardAI</strong><span class="footer-divider">|</span> Hành trình hội nhập nhân sự mới</span>
+        <a href="mailto:hr@example.com">♧ Liên hệ hỗ trợ</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

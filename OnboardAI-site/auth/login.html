@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnboardAI | Đăng nhập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth-side">
+    <a class="brand" href="../index.html"><span class="mark">✦</span><span>OnboardAI</span></a>
+    <div>
+      <h1>Chào mừng bạn quay lại</h1>
+      <p>Tiếp tục hành trình hội nhập: theo dõi nhiệm vụ, đồng hành cùng mentee và nắm tiến độ toàn công ty.</p>
+      <ul><li>Checklist hội nhập cá nhân hoá</li><li>Mentor theo sát từng mốc</li><li>HR thấy rủi ro sớm</li></ul>
+    </div>
+    <small>OnboardAI · Bài tập lớn Web Development (CSE122)</small>
+  </aside>
+  <main class="auth-main">
+    <div class="panel">
+      <h2>Đăng nhập</h2>
+      <p class="sub">Nhập thông tin tài khoản để vào không gian làm việc.</p>
+      <div id="banner" class="alert" role="alert" aria-live="polite" hidden></div>
+      <form id="login-form" novalidate>
+        <div class="field" id="email-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="ten@congty.vn">
+          <p class="err" id="email-err" aria-live="polite"></p>
+        </div>
+        <div class="field" id="password-field">
+          <label for="password">Mật khẩu</label>
+          <div class="pw"><input type="password" id="password" autocomplete="current-password" placeholder="••••••••"><button type="button" aria-pressed="false">Hiện</button></div>
+          <p class="err" id="password-err" aria-live="polite"></p>
+        </div>
+        <div class="row">
+          <label class="check"><input type="checkbox" id="remember" checked> Ghi nhớ đăng nhập</label>
+          <a href="#" onclick="alert('Prototype chưa có chức năng khôi phục mật khẩu.');return false">Quên mật khẩu?</a>
+        </div>
+        <button class="btn" id="submit" type="submit">Đăng nhập</button>
+      </form>
+      <p class="alt">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+      <div class="demo">
+        <p>Tài khoản demo (mật khẩu: <b>123456</b>) – bấm để điền nhanh:</p>
+        <div>
+          <button type="button" data-demo="newhire@onboardai.vn">Nhân viên mới</button>
+          <button type="button" data-demo="mentor@onboardai.vn">Mentor</button>
+          <button type="button" data-demo="hr@onboardai.vn">HR / Admin</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+:root {
+    --primary: #6c5ce7;
+    --primary-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    --bg-light: #f4f5f9;
+    --sidebar-bg: #f8f9fe;
+    --card-bg: #ffffff;
+    --text-dark: #2d3436;
+    --text-muted: #636e72;
+    --border-radius: 20px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    min-height: 100vh;
+    padding: 24px 16px;
+    border-right: 1px solid #e9ecef;
+}
+
+.logo-brand {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+    background-color: #eef0fd;
+    color: var(--primary);
+}
+
+/* Hero Banner Style - Chuẩn Ảnh 3 */
+.welcome-banner {
+    background: var(--primary-gradient);
+    color: #fff;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.welcome-banner h2 {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.badge-pill-custom {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Card Style */
+.card-custom {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Table Style */
+.table-custom {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.table-custom th {
+    color: var(--text-muted);
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+}
+
+.table-custom tbody tr {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+.table-custom td {
+    padding: 14px 12px;
+    vertical-align: middle;
+    border: none;
+}
+
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+.logo-brand { margin-bottom: 18px; }
+@media (max-width: 820px) {
+    body > .d-flex { flex-direction: column; }
+    .sidebar { width: 100%; min-height: auto; border-right: 0; border-bottom: 1px solid #e9ecef; }
+}
+.flex-grow-1 { min-width: 0; }
+.card-custom { overflow-x: auto; }
+
+/* Hộp thoại sửa (dùng <dialog> gốc, không cần Bootstrap JS) */
+.ob-dialog { border: 0; border-radius: 20px; padding: 24px; width: min(560px, calc(100% - 24px)); max-height: 90vh; overflow: auto; box-shadow: 0 25px 90px #1b12364d; color: var(--text-dark); }
+.ob-dialog::backdrop { background: #24164a70; backdrop-filter: blur(3px); }
+.ob-dialog h4 { margin: 0 0 4px; font-weight: 700; }
+.ob-dialog .form-label { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.ob-dialog .err { color: #d84f66; font-size: 12px; min-height: 16px; margin-top: 6px; }
+.ob-dialog .btn-primary { background-color: var(--primary); border: none; }
+.step-row { display: grid; grid-template-columns: 1fr 84px auto; gap: 8px; align-items: center; margin-bottom: 8px; }
+.step-row .btn { padding: 4px 8px; }
+.toast-ob { position: fixed; right: 20px; bottom: 20px; z-index: 2000; background: #30264e; color: #fff; padding: 12px 16px; border-radius: 11px; font-size: 13px; box-shadow: 0 8px 30px #21164040; }

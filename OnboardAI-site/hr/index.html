@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnboardAI | HR Dashboard Báo Cáo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+<script src="../shared/role-switcher.js" data-role="hr" defer></script></head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo-brand"><i class="fa-solid fa-wand-magic-sparkles"></i> OnboardAI</div>
+            <a href="index.html" class="nav-link-custom active"><i class="fa-solid fa-chart-pie"></i> Báo cáo tổng quan</a>
+            <a href="employees.html" class="nav-link-custom"><i class="fa-solid fa-users"></i> Quản lý nhân viên</a>
+            <a href="journeys.html" class="nav-link-custom"><i class="fa-solid fa-route"></i> Quy trình hội nhập</a>
+            <a href="#" class="nav-link-custom" onclick="return false" title="Chưa có trong bản prototype"><i class="fa-solid fa-gear"></i> Cài đặt hệ thống</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-grow-1 p-4">
+            <!-- Welcome Banner Chuẩn Ảnh 3 -->
+            <div class="welcome-banner">
+                <span class="badge-pill-custom">✨ Bảng điều khiển HR Admin</span>
+                <h2 class="mt-2">Thống kê & Tiến độ hội nhập toàn công ty</h2>
+                <p class="mb-0">Theo dõi thời gian thực tiến độ hoàn thành checklist của nhân sự mới.</p>
+            </div>
+
+            <!-- Stats Overview Card -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card-custom text-center">
+                        <span class="text-muted">Tổng nhân sự mới</span>
+                        <div class="stat-number">24</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom text-center">
+                        <span class="text-muted">Đang đúng tiến độ</span>
+                        <div class="stat-number text-success">18</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom text-center">
+                        <span class="text-muted">Có nguy cơ chậm (AI)</span>
+                        <div class="stat-number text-danger">4</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom text-center">
+                        <span class="text-muted">Đã hoàn thành 100%</span>
+                        <div class="stat-number text-primary">2</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Progress Risk Alert Box -->
+            <div class="card-custom border-start border-4 border-danger">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0"><i class="fa-solid fa-robot text-primary"></i> AI Phân tích nguy cơ chậm tiến độ (Progress Risk)</h5>
+                    <button class="btn btn-sm btn-outline-primary" id="btn-reanalyze">Phân tích lại</button>
+                </div>
+                <p class="text-muted small">AI phát hiện 2 nhân sự có khả năng trễ hạn Onboarding do chưa hoàn thành nhiệm vụ Bảo mật hệ thống.</p>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nhân sự</th>
+                                <th>Phòng ban</th>
+                                <th>Tiến độ hiện tại</th>
+                                <th>Mức độ rủi ro</th>
+                                <th>Hành động đề xuất</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nguyễn Văn B</strong></td>
+                                <td>Kỹ thuật (IT)</td>
+                                <td><span class="badge bg-warning">30%</span></td>
+                                <td><span class="badge bg-danger">Rủi ro cao</span></td>
+                                <td><button class="btn btn-sm btn-primary">Gửi email nhắc nhở</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lê Thị C</strong></td>
+                                <td>Marketing</td>
+                                <td><span class="badge bg-warning">45%</span></td>
+                                <td><span class="badge bg-warning text-dark">Rủi ro trung bình</span></td>
+                                <td><button class="btn btn-sm btn-outline-secondary">Giao Mentor hỗ trợ</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/hr-main.js"></script>
+</body>
+</html>

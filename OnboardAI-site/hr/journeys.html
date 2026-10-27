@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnboardAI | Quy trình Hội nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+<script src="../shared/role-switcher.js" data-role="hr" defer></script></head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo-brand"><i class="fa-solid fa-wand-magic-sparkles"></i> OnboardAI</div>
+            <div class="text-muted small mb-3 px-2 text-uppercase" style="font-size: 11px; letter-spacing: 0.5px;">Không gian làm việc</div>
+            <a href="index.html" class="nav-link-custom"><i class="fa-solid fa-chart-pie"></i> Báo cáo tổng quan</a>
+            <a href="employees.html" class="nav-link-custom"><i class="fa-solid fa-users"></i> Quản lý nhân viên</a>
+            <a href="journeys.html" class="nav-link-custom active"><i class="fa-solid fa-route"></i> Quy trình hội nhập</a>
+            
+            <!-- Box Hỗ trợ ở dưới sidebar -->
+            <div class="mt-auto p-3 bg-white rounded-4 shadow-sm mt-5" style="border: 1px solid #eee;">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px; font-size: 12px;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <strong>Cần hỗ trợ?</strong>
+                </div>
+                <p class="text-muted small mb-2" style="font-size: 12px;">Khám phá hướng dẫn sử dụng OnboardAI.</p>
+                <a href="#" class="text-primary small fw-bold text-decoration-none">Tìm hiểu thêm</a>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-grow-1 p-4 bg-light">
+            <!-- Header Tiêu đề -->
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h2 class="fw-bold mb-1">Thiết kế Quy trình Hội nhập</h2>
+                    <p class="text-muted mb-0 small">Onboarding Journeys · Xây dựng lộ trình phù hợp cho từng khối phòng ban.</p>
+                </div>
+                <button class="btn btn-primary px-3 py-2 rounded-3" style="background-color: var(--primary); border:none;"><i class="fa-solid fa-plus me-1"></i> Tạo quy trình mới</button>
+            </div>
+
+            <!-- List of Journeys (2 Card lớn song song) -->
+            <div class="row g-4" id="journey-list"></div>
+        </div>
+    </div>
+    <dialog id="journey-dialog" class="ob-dialog" aria-labelledby="journey-dialog-title" style="width:min(640px,calc(100% - 24px))">
+        <form id="journey-form" method="dialog" novalidate>
+            <h4 id="journey-dialog-title">Chỉnh sửa bước</h4>
+            <p class="text-muted small mb-3" id="journey-dialog-sub"></p>
+            <div class="row g-3 mb-3">
+                <div class="col-md-8"><label class="form-label" for="j-title">Tên quy trình *</label><input class="form-control" id="j-title" maxlength="80"></div>
+                <div class="col-md-4"><label class="form-label" for="j-days">Tổng số ngày *</label><input class="form-control" id="j-days" type="number" min="1" max="365"></div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2"><span class="form-label mb-0">Các bước (tên bước · ngày thực hiện)</span>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="j-add"><i class="fa-solid fa-plus"></i> Thêm bước</button></div>
+            <div id="j-steps"></div>
+            <div class="err" id="journey-error" role="alert"></div>
+            <div class="d-flex justify-content-between gap-2 mt-3">
+                <button type="button" class="btn btn-link text-muted p-0" id="j-reset">Khôi phục mặc định</button>
+                <div class="d-flex gap-2"><button type="button" class="btn btn-light" id="j-cancel">Hủy</button><button type="submit" class="btn btn-primary">Lưu thay đổi</button></div>
+            </div>
+        </form>
+    </dialog>
+    <script src="js/hr-journeys.js"></script>
+    <script src="js/hr-main.js"></script>
+</body>
+</html>
